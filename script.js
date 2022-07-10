@@ -88,7 +88,7 @@ function Initiate() {
                 Step1_ListBox.find('li.empty').hide();
             }
 
-            if (Value.endsWith('.lua')) {
+            if (Value.toLowerCase().endsWith('.lua')) {
                 Value = Value.substring(0, Value.length - 4);
             }
             
