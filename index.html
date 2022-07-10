@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Lua & Config Loader Generator</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://cdn.jsdelivr.net">
+        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <h1>Lua & Config Loader Generator</h1>
+                <h2>by csmit195</h2>
+            </header>
+            <main>
+                <ul id="steps">
+                    <li>
+                        <h3>Step 1
+                            <span>Enter the exact names of all Luas that you want to start (excluding workshop)</span>
+                        </h3>
+                        <div class="content">
+                            <ul class="listbox outline">
+                                <li class="empty">I'm empty, <a href="https://www.youtube.com/watch?v=ARU-vy8nkV4" target="_blank">don't be shy, put some more!</a></li>
+                            </ul>
+                            <div id="step1-form">
+                                <input placeholder="Lua Name" class="outline" type="text">
+                                <button class="outline">Add</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <h3>Step 2
+                            <span>Enter the exact name of the config or embed a config into the script.</span>
+                        </h3>
+                        <div class="content">
+                            <input placeholder="Config Name" class="outline" type="text">
+                            <hr class="or_seperator" />
+                            <textarea placeholder="Config Code" class="outline"></textarea>
+                            <button>Generate</button>
+                        </div>
+                    </li>
+                </ul>
+            </main>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
