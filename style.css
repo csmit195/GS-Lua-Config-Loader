@@ -115,7 +115,7 @@ header h2 {
     color: #777
 }
 
-.listbox > li.empty a {
+.listbox > li.empty a, .listbox > li.empty a:link, .listbox > li.empty a:visited, .listbox > li.empty a:hover, .listbox > li.empty a:active {
     color: #FFCC0075;
     text-decoration: underline;
 }
