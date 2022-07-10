@@ -81,13 +81,17 @@ const Step2_Button = Step2.find('.content button');
 function Initiate() {
     // Step 1 Code
     Step1_Button.click(function() {
-        const Value = Step1_Input.val();
+        let Value = Step1_Input.val();
         if (Value) {
             // Check if li.empty exists, if so hide it
             if (Step1_ListBox.find('li.empty').length > 0) {
                 Step1_ListBox.find('li.empty').hide();
             }
 
+            if (Value.endsWith('.lua')) {
+                Value = Value.substring(0, Value.length - 4);
+            }
+            
             Step1_ListBox.append(`<li><button onclick="Delete(this);">X</button><span>${Value}</span></li>`);
             Step1_Input.val('');
         }
