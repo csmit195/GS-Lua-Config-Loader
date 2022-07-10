@@ -27,7 +27,7 @@ local function Cleanup()
     ui.set(resetConfig, 1)
 end
 
-local function Initiate()
+local function LoadLuas()
     local luas = {
         {{#each luas}}
         "{{this}}",
@@ -39,12 +39,27 @@ local function Initiate()
             require(lua)
         end)
     end
+end
 
+local function LoadConfig()
     {{#if isEmbedded}}
     config.import([[{{config}}]])
     {{else}}
     config.load("{{config}}")
     {{/if}}
+end
+
+local function Initiate()
+    LoadLuas()
+    LoadConfig()
+    
+    local ReloadExists, _ = pcall(ui.reference, "CONFIG", "Lua", "Reload Config")
+
+    if not ReloadExists then
+        ui.new_button("CONFIG", "Lua", "Reload Config", LoadConfig)
+    else
+        client.error_log("Another Loader is already loaded, please unload it before loading another one, otherwise you will have config issues.")
+    end
 
     client.set_event_callback("shutdown", Cleanup)
 end
@@ -101,7 +116,7 @@ function Initiate() {
         const Luas = Step1_ListBox.find('li').not('.empty').map(function() {
             return $(this).find('span').text();
         }).get();
-        
+
         const ConfigInput = Step2_Input.val();
         const ConfigEmbed = Step2_TextArea.val();
         const IsEmbed = Step2_TextArea.val();

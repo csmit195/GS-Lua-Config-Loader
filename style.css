@@ -84,6 +84,15 @@ header h2 {
     font-size: 0.75em;
 }
 
+#lua-warning {
+    color: #FF0000;
+    font-weight: 400;
+    font-size: 0.75em;
+    margin-bottom: 10px;
+    margin-top: -10px;
+    text-align: left;
+}
+
 .outline {
     background-color: #222121;
     border: 1px solid #FFCC00;
