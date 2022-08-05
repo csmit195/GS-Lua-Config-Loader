@@ -1,4 +1,4 @@
-# Lua & Config Generator
+# Lua & Config Generator Web Application
 A simple Lua generator for Gamesense that allows you to load selective luas and config. Best used for quickly swapping between Legit and Rage configs.
 
 Click the below link to get started.
