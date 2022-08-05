@@ -79,6 +79,17 @@ const Step2_TextArea = Step2.find('.content textarea');
 const Step2_Button = Step2.find('.content button');
 
 function Initiate() {
+    // Notice Code
+    // TODO: This will block future notices, fix this
+    if (localStorage.getItem('Notice') != 'true') {
+        jQuery('.notice').show();
+    }
+
+    jQuery('.notice button').click(function(){
+        jQuery('.notice').hide();
+        localStorage.setItem('Notice', 'true');
+    }).css('cursor', 'pointer');
+
     // Step 1 Code
     Step1_Button.click(function() {
         let Value = Step1_Input.val();

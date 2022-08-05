@@ -27,6 +27,30 @@ button {
     box-sizing: border-box;
 }
 
+/*#REGION Notices */
+
+.notice {
+    display: none;
+
+    color: #eee;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.notice button {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    margin-right: 5px;
+}
+
+.update {
+    background-color: rgba(0, 120, 0, 0.5);
+}
+
+/*#ENDREGION*/
+
 /*#REGION Header */
 header {
     margin-bottom: 20px;
