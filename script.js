@@ -103,6 +103,42 @@ function Initiate() {
         }
     });
 
+    const Dropper = $('ul.listbox.outline');
+
+    Dropper.on('drop', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const Files = e.originalEvent.dataTransfer.files;
+        const Luas = [];
+
+        for (let i = 0; i < Files.length; i++) {
+            const File = Files[i];
+            if (File.name.endsWith('.lua')) {
+                Luas.push(File.name.replace('.lua', ''));
+            }
+        }
+
+        if (Luas.length > 0) {
+            Step1_ListBox.find('li.empty').hide();
+            for (let i = 0; i < Luas.length; i++) {
+                Step1_ListBox.append(`<li><button onclick="Delete(this);">X</button><span>${Luas[i]}</span></li>`);
+            }
+        }
+    }).on('dragover', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }).on('dragend', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }).on('dragstart', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }).on('drag', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    });
+
     // Step 2 Code
     Step2_Input.on('keyup', function(e) {
         if (Step2_TextArea.val()) {
