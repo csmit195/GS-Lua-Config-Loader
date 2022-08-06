@@ -95,9 +95,13 @@ function Initiate() {
     Step1_Button.click(function() {
         let Value = Step1_Input.val();
         if (Value) {
-            // Check if li.empty exists, if so hide it
             if (Step1_ListBox.find('li.empty').length > 0) {
                 Step1_ListBox.find('li.empty').hide();
+            }
+
+            if (Step1_ListBox.find('li:contains("' + Value + '")').length > 0) {
+                alert(`${Value} is already in the list.`);
+                return;
             }
 
             if (Value.toLowerCase().endsWith('.lua')) {
