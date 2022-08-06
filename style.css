@@ -1,5 +1,9 @@
 @import "normalise.css";
 
+:root {
+    --configValue: 1;
+}
+
 ul {
     list-style: none;
 }
@@ -125,6 +129,10 @@ header h2 {
     margin-bottom: 10px;
 }
 
+.outline.listbox {
+    padding: 7px 10px;
+}
+
 .listbox button {
     background-color: transparent;
     border: none;
@@ -145,15 +153,16 @@ header h2 {
     text-decoration: underline;
 }
 
-hr.or_seperator {
+hr.seperator {
     border: 0;
     border-bottom: 1px solid #FFCC00CC;
     margin-top: 10px;
     margin-bottom: 20px;
 }
-hr.or_seperator::after {
+
+hr.seperator::after {
     background: #171414;
-    content: "OR";
+    content: attr(data-text);
     display: inline-block;
     height: 20px;
     left: 50%;
@@ -161,6 +170,63 @@ hr.or_seperator::after {
     padding: 0 40px;
     position: absolute;
     line-height: 0;
+}
+#configdelay {
+    position: relative;
+    margin-bottom: 20px;
+    height: 25px;
+}
+#configdelay:before {
+    content: attr(data-value) "s";
+    color: black;
+    font-size: 0.9em;
+    position: absolute;
+    left: calc( calc( 10% - 2px ) *  var(--configValue) );
+
+    background-color: white;
+    border: 2px solid #000;
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+
+    text-align: center;
+
+    pointer-events: none;
+}
+
+#configdelay[data-value="0"] {
+    --configValue: 0;
+}
+#configdelay[data-value="1"] {
+    --configValue: 1;
+}
+#configdelay[data-value="2"] {
+    --configValue: 2;
+}
+#configdelay[data-value="3"] {
+    --configValue: 3;
+}
+#configdelay[data-value="4"] {
+    --configValue: 4;
+}
+#configdelay[data-value="5"] {
+    --configValue: 5;
+}
+#configdelay[data-value="6"] {
+    --configValue: 6;
+}
+#configdelay[data-value="7"] {
+    --configValue: 7;
+}
+#configdelay[data-value="8"] {
+    --configValue: 8;
+}
+#configdelay[data-value="9"] {
+    --configValue: 9;
+}
+#configdelay[data-value="10"] {
+    --configValue: 10;
 }
 /*#ENDREGION*/
 

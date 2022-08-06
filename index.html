@@ -44,9 +44,11 @@
                         </h3>
                         <div class="content">
                             <input placeholder="Config Name" class="outline" type="text">
-                            <hr class="or_seperator" />
+                            <hr class="seperator" data-text="OR"/>
                             <textarea placeholder="Config Code" class="outline"></textarea>
-                            <div id="lua-warning">p.s if semirage/rage Lua that doesn't create their UI at runtime (most paid luas), config will not be applied, use the "Reload Config" under the scripts list.</div>
+                            <hr class="seperator" data-text="Auto Config Load Delay" />
+                            <input type="range" min="0" max="10" value="0" data-value="0" id="configdelay">
+                            <div id="lua-warning">p.s Most paid luas don't create their UIs at script start, use the above delay to auto delay config load.</div>
                             <button>Generate</button>
                         </div>
                     </li>

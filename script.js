@@ -51,7 +51,7 @@ end
 
 local function Initiate()
     LoadLuas()
-    LoadConfig()
+    client.delay_call({{configDelay}}, LoadConfig)
     
     local ReloadExists, _ = pcall(ui.reference, "CONFIG", "Lua", "Reload Config")
 
@@ -77,6 +77,7 @@ const Step2 = $('#steps > li:nth-child(2)');
 const Step2_Input = Step2.find('.content input');
 const Step2_TextArea = Step2.find('.content textarea');
 const Step2_Button = Step2.find('.content button');
+const Step2_Range =  Step2.find('#configdelay');
 
 function Initiate() {
     // Notice Code
@@ -178,6 +179,12 @@ function Initiate() {
         Download('load_NameMe.lua', code);
     });
 
+    Step2_Range.on('input', function() {
+        const Value = $(this).val();
+
+        $(this).attr('data-value', Value);
+    });
+
 }
 
 function Delete(elem){
@@ -207,6 +214,7 @@ function GenerateScript(Luas, Config, IsEmbed) {
     const Context = {
         isEmbedded: IsEmbed,
         luas: Luas,
+        configDelay: Step2_Range.val() || 0,
         config: Config
     };
 
